@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasha Bethea — QA Engineer · SDET · Technical PM</title>
+<meta name="description" content="10+ years of quality engineering across AR/VR hardware, mobile, and cloud. Ex-Meta Quest QA. Python automation builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0E1A; --surface:#121728; --surface2:#1A2138; --line:#232C48;
+  --txt:#E9ECF5; --sub:#7E88A3; --amber:#FFB454; --pass:#55E6A5; --fail:#FF6B7A;
+  --mono:'IBM Plex Mono',ui-monospace,monospace; --disp:'Space Grotesk',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--disp);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--amber);color:#0B0E1A}
+a{color:inherit}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ===== HERO / CONSOLE ===== */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:64px 0 48px;position:relative}
+.console{font-family:var(--mono);font-size:13px;color:var(--sub);margin-bottom:28px}
+.console .ln{display:block;opacity:0;animation:appear .01s forwards}
+.console .ok{color:var(--pass)}
+.console .amber{color:var(--amber)}
+.console .cursor::after{content:"▊";color:var(--amber);animation:blink 1s steps(1) infinite}
+@keyframes appear{to{opacity:1}}
+@keyframes blink{50%{opacity:0}}
+.ln:nth-child(1){animation-delay:.15s}.ln:nth-child(2){animation-delay:.5s}
+.ln:nth-child(3){animation-delay:.85s}.ln:nth-child(4){animation-delay:1.2s}
+.ln:nth-child(5){animation-delay:1.6s}
+.hero-name{font-size:clamp(42px,11vw,84px);font-weight:700;letter-spacing:-.03em;line-height:.98;opacity:0;animation:rise .7s 1.85s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-name em{font-style:normal;color:var(--amber)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-role{font-family:var(--mono);font-size:14px;color:var(--sub);margin-top:18px;letter-spacing:.04em;opacity:0;animation:rise .7s 2.1s forwards}
+.hero-role b{color:var(--txt);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;opacity:0;animation:rise .7s 2.3s forwards}
+.btn{font-family:var(--mono);font-size:14px;font-weight:600;text-decoration:none;padding:15px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px}
+.btn-a{background:var(--amber);color:#0B0E1A}
+.btn-a:active{transform:translateY(1px)}
+.btn-g{border:1px solid var(--line);color:var(--txt);background:var(--surface)}
+.scrollhint{position:absolute;bottom:22px;left:20px;font-family:var(--mono);font-size:11px;color:var(--sub);letter-spacing:.15em;opacity:0;animation:rise .7s 2.6s forwards}
+
+/* ===== SECTION SCAFFOLD ===== */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sec-tag{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.12em;margin-bottom:10px}
+.sec-title{font-size:clamp(26px,6vw,38px);font-weight:700;letter-spacing:-.02em;margin-bottom:34px}
+
+/* ===== METRICS ===== */
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 18px}
+.metric b{display:block;font-size:clamp(28px,7vw,40px);font-weight:700;color:var(--pass);font-family:var(--mono);letter-spacing:-.02em}
+.metric span{font-size:13px;color:var(--sub)}
+@media(min-width:640px){.metrics{grid-template-columns:repeat(4,1fr)}}
+
+/* ===== EXPERIENCE LOG ===== */
+.log{border-left:2px solid var(--line);margin-left:6px}
+.entry{position:relative;padding:0 0 44px 26px}
+.entry:last-child{padding-bottom:0}
+.entry::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--amber)}
+.stamp{font-family:var(--mono);font-size:12px;color:var(--sub);letter-spacing:.06em}
+.entry h3{font-size:19px;font-weight:700;margin:6px 0 2px}
+.entry .co{font-family:var(--mono);font-size:13px;color:var(--amber);margin-bottom:12px}
+.entry ul{list-style:none}
+.entry li{font-size:15px;color:#C4CBDD;padding-left:20px;position:relative;margin-bottom:8px}
+.entry li::before{content:"›";position:absolute;left:0;color:var(--pass);font-family:var(--mono)}
+
+/* ===== PROJECTS / BENTO GRID ===== */
+.projects{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:720px){
+  .projects{grid-template-columns:repeat(6,1fr)}
+  .t-4{grid-column:span 4}.t-3{grid-column:span 3}.t-2{grid-column:span 2}
+}
+.tile{position:relative;display:flex;flex-direction:column;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;overflow:hidden;transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.tile:hover{transform:translateY(-3px);border-color:var(--amber);box-shadow:0 12px 40px -18px rgba(255,180,84,.35)}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(255,180,84,.10),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tile:hover::before{opacity:1}
+.tile .ptag{font-family:var(--mono);font-size:11px;color:var(--pass);letter-spacing:.1em;margin-bottom:10px}
+.tile h3{font-size:19px;margin-bottom:8px;display:flex;align-items:baseline;gap:10px}
+.tile h3 .arrow{margin-left:auto;font-family:var(--mono);font-size:15px;color:var(--sub);transition:color .2s,transform .2s}
+.tile:hover .arrow{color:var(--amber);transform:translate(3px,-3px)}
+.tile p{font-size:14px;color:var(--sub);flex:1}
+.tile .stack{font-family:var(--mono);font-size:11.5px;color:#9AA5C0;margin-top:16px;padding-top:12px;border-top:1px dashed var(--line);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.feat{background:linear-gradient(160deg,#182040,#121728 60%);border-color:#2B3560}
+.feat h3{font-size:clamp(22px,4vw,28px)}
+.feat .ptag{color:var(--amber)}
+.feat .deco{position:absolute;right:-30px;bottom:-38px;font-family:var(--mono);font-size:120px;font-weight:600;color:rgba(255,180,84,.05);pointer-events:none;user-select:none;line-height:1}
+
+/* ===== SKILLS ===== */
+.skillgrid{display:grid;gap:22px}
+@media(min-width:640px){.skillgrid{grid-template-columns:1fr 1fr}}
+.sg h4{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-family:var(--mono);font-size:12.5px;background:var(--surface2);border:1px solid var(--line);border-radius:6px;padding:7px 12px;color:#C4CBDD}
+
+/* ===== CONTACT ===== */
+.contact{text-align:left}
+.contact .big{font-size:clamp(28px,7vw,48px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:28px}
+.contact .big em{font-style:normal;color:var(--amber)}
+footer{padding:36px 0 48px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:12px;color:var(--sub)}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}
+  .hero-name,.hero-role,.cta,.console .ln,.scrollhint,.rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="console" aria-hidden="true">
+      <span class="ln">$ run system_check --candidate</span>
+      <span class="ln"><span class="ok">PASS</span>  quest_hardware_qa ......... 4 yrs @ Meta</span>
+      <span class="ln"><span class="ok">PASS</span>  python_automation ......... 10+ yrs</span>
+      <span class="ln"><span class="ok">PASS</span>  defects_triaged ........... 1,000+</span>
+      <span class="ln"><span class="amber">READY</span> candidate.load() <span class="cursor"></span></span>
+    </div>
+    <h1 class="hero-name">Tasha<br><em>Bethea</em></h1>
+    <p class="hero-role"><b>QA Engineer · SDET · Technical PM</b><br>I break things carefully so users never have to.</p>
+    <div class="cta">
+      <a class="btn btn-a" href="TashaBethea_QA_Engineer_Resume.docx" download>↓ Download resume</a>
+      <a class="btn btn-g" href="https://github.com/Gamergirllove" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-g" href="mailto:tbethea.sync@gmail.com">Email</a>
+    </div>
+  </div>
+  <div class="scrollhint">SCROLL ▾</div>
+</div>
+
+<section id="metrics">
+  <div class="wrap">
+    <p class="sec-tag">// TEST REPORT</p>
+    <h2 class="sec-title rv">Ten years of shipping quality</h2>
+    <div class="metrics">
+      <div class="metric rv"><b>1,000+</b><span>defects triaged on Meta Quest launches</span></div>
+      <div class="metric rv"><b>-35%</b><span>critical bugs via proactive gap analysis</span></div>
+      <div class="metric rv"><b>+40%</b><span>test efficiency from custom automation</span></div>
+      <div class="metric rv"><b>100+</b><span>devices covered, flagship to budget</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="sec-tag">// EXECUTION LOG</p>
+    <h2 class="sec-title rv">Experience</h2>
+    <div class="log">
+      <div class="entry rv">
+        <div class="stamp">2021.06 → 2025.03</div>
+        <h3>Quality Engineer / TPM 2</h3>
+        <div class="co">Meta — Quest AR/VR, Burlingame CA</div>
+        <ul>
+          <li>Designed OS-level test suites for tracking systems across hardware revisions</li>
+          <li>Built Python log-analysis tooling that cut defect triage cycle time</li>
+          <li>Shipped Quest Pro Tracking, Quest 3 ML Passthrough, Quest 3s, MX Ink</li>
+          <li>Defined KPIs with engineering leadership used as release gates</li>
+        </ul>
+      </div>
+      <div class="entry rv">
+        <div class="stamp">2019.04 → 2020.05</div>
+        <h3>TPM 3 · Product Owner / BA</h3>
+        <div class="co">Synchronoss — AT&amp;T, Verizon, BT cloud clients</div>
+        <ul>
+          <li>Owned search-and-tag feature end-to-end, requirements through release</li>
+          <li>Cut manual processing 50% through automation-focused workflow analysis</li>
+        </ul>
+      </div>
+      <div class="entry rv">
+        <div class="stamp">2014.09 → 2019.04</div>
+        <h3>QA Lead</h3>
+        <div class="co">Synchronoss — cross-platform mobile transfer</div>
+        <ul>
+          <li>Built Selenium/Appium/TestNG frameworks simulating real-world transfer scenarios</li>
+          <li>Validated encryption with Wireshark &amp; Charles Proxy to security standards</li>
+          <li>4-star Play Store rating driven by QA improvements</li>
+        </ul>
+      </div>
+      <div class="entry rv">
+        <div class="stamp">2025 → NOW</div>
+        <h3>Founder / Engineer</h3>
+        <div class="co">Technidox — remote</div>
+        <ul>
+          <li>Building BrandCMD, a creator-intelligence SaaS (FastAPI/PostgreSQL)</li>
+          <li>Shipping open-source Python automation tools on GitHub</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="sec-tag">// SIDE BUILDS</p>
+    <h2 class="sec-title rv">Things I ship</h2>
+    <div class="projects">
+      <a class="tile feat t-4 rv" href="https://github.com/Gamergirllove/brandcmd-backend" target="_blank" rel="noopener">
+        <div class="ptag">SAAS · FLAGSHIP BUILD</div>
+        <h3>BrandCMD <span class="arrow">↗</span></h3>
+        <p>Creator-intelligence platform aggregating Twitch &amp; YouTube metrics into goals, reports, and notifications. FastAPI/PostgreSQL backend with auth and API clients, TypeScript front end, automated test coverage baked in from day one.</p>
+        <div class="stack"><span class="dot" style="background:#3572A5"></span>Python · FastAPI · PostgreSQL · TypeScript · Twitch/YT APIs</div>
+        <div class="deco">&gt;_</div>
+      </a>
+      <a class="tile t-2 rv" href="https://github.com/Gamergirllove/Thoughts2.0" target="_blank" rel="noopener">
+        <div class="ptag">AUDIO · AUTOMATION</div>
+        <h3>Thoughts 2.0 <span class="arrow">↗</span></h3>
+        <p>Deliver a polished podcast from your phone: voice notes become broadcast-ready episodes — splicing, sponsor insertion, RSS publishing.</p>
+        <div class="stack"><span class="dot" style="background:#3572A5"></span>Python · RSS · Tailscale</div>
+      </a>
+      <a class="tile t-2 rv" href="https://github.com/Gamergirllove/the-challenge-game" target="_blank" rel="noopener">
+        <div class="ptag">GAME · MULTIPLAYER</div>
+        <h3>the-challenge-game <span class="arrow">↗</span></h3>
+        <p>Reality-competition-style multiplayer party game — real-time rounds, eliminations, and chaos with friends.</p>
+        <div class="stack"><span class="dot" style="background:#F1E05A"></span>JavaScript · Node</div>
+      </a>
+      <a class="tile t-2 rv" href="https://github.com/Gamergirllove/tap-that" target="_blank" rel="noopener">
+        <div class="ptag">OPEN SOURCE · DESKTOP</div>
+        <h3>tap-that <span class="arrow">↗</span></h3>
+        <p>Windows auto-tap overlay for repetitive UI interaction — lightweight, configurable, always on top.</p>
+        <div class="stack"><span class="dot" style="background:#3572A5"></span>Python · tkinter · Win32</div>
+      </a>
+      <a class="tile t-2 rv" href="https://github.com/Gamergirllove/celebrity-stock-trader" target="_blank" rel="noopener">
+        <div class="ptag">GAME · SIMULATION</div>
+        <h3>celebrity-stock-trader <span class="arrow">↗</span></h3>
+        <p>Celebrity crypto-trading game — market sims, portfolios, and questionable financial advice from fake famous people.</p>
+        <div class="stack"><span class="dot" style="background:#3572A5"></span>Python</div>
+      </a>
+      <a class="tile t-3 rv" href="https://github.com/Gamergirllove/SythVis" target="_blank" rel="noopener">
+        <div class="ptag">CREATIVE CODE</div>
+        <h3>SythVis <span class="arrow">↗</span></h3>
+        <p>Real-time synth visualization experiments — audio in, visuals out.</p>
+        <div class="stack"><span class="dot" style="background:#7E88A3"></span>Audio · Visualization</div>
+      </a>
+      <a class="tile t-3 rv" href="https://github.com/Gamergirllove" target="_blank" rel="noopener">
+        <div class="ptag">OPEN SOURCE</div>
+        <h3>chat-caster <span class="arrow">↗</span></h3>
+        <p>Dual-mode chat auto-sender with a Manifest V3 extension for Chrome, Opera, and Edge.</p>
+        <div class="stack"><span class="dot" style="background:#F1E05A"></span>Python · JS · Chrome MV3</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-tag">// TOOLCHAIN</p>
+    <h2 class="sec-title rv">Skills</h2>
+    <div class="skillgrid">
+      <div class="sg rv"><h4>Automation &amp; Testing</h4>
+        <div class="chips"><span>Selenium</span><span>Appium</span><span>TestNG</span><span>JUnit</span><span>Playwright</span><span>Jenkins</span><span>BrowserStack</span><span>Firebase Test Lab</span><span>ADB</span><span>Charles Proxy</span><span>Wireshark</span></div>
+      </div>
+      <div class="sg rv"><h4>Languages</h4>
+        <div class="chips"><span>Python</span><span>Java</span><span>Kotlin</span><span>Bash</span><span>JavaScript</span><span>SQL</span></div>
+      </div>
+      <div class="sg rv"><h4>Platforms</h4>
+        <div class="chips"><span>AR/VR embedded</span><span>iOS</span><span>Android</span><span>Windows</span><span>FastAPI</span><span>PostgreSQL</span><span>REST APIs</span></div>
+      </div>
+      <div class="sg rv"><h4>PM &amp; Process</h4>
+        <div class="chips"><span>Jira</span><span>Confluence</span><span>Notion</span><span>Agile/Scrum</span><span>CSPO</span><span>CTPM (UC Berkeley)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <p class="sec-tag">// HANDSHAKE</p>
+    <p class="big rv">Hiring for QA, SDET, or technical product?<br><em>Let's run the interview.</em></p>
+    <div class="cta" style="opacity:1;animation:none">
+      <a class="btn btn-a" href="mailto:tbethea.sync@gmail.com">tbethea.sync@gmail.com</a>
+      <a class="btn btn-g" href="tel:8189129295">(818) 912-9295</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Tasha Bethea</span>
+    <span>B.S. Computer Science · Bloomsburg University</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.tile').forEach(t=>t.addEventListener('pointermove',e=>{
+  const r=t.getBoundingClientRect();
+  t.style.setProperty('--mx',(e.clientX-r.left)+'px');
+  t.style.setProperty('--my',(e.clientY-r.top)+'px');
+}));
+</script>
+</body>
+</html>
