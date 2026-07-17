@@ -1,0 +1,3 @@
+Bug sprites: "Ambient Pixel Art Insects" by madameberry
+Source: https://opengameart.org/content/ambient-pixel-art-insects
+License: CC0 (public domain)
